@@ -10,13 +10,13 @@ player = FirstPersonController(
 )
 
 supra = Entity(
-    model='assets\car.obj',
+    model='assets/car.obj',
     position=(0, 1, 0)
 )
 
 # Создаем пол
 ground = Entity(
-    model='assets\enviropment.obj',
+    model='assets/enviropment.obj',
     texture='white_cube',
     collider='box'
 )
@@ -26,7 +26,5 @@ Sky()
 def input(key):
     if key == "escape":
         quit()
-
-1
 
 app.run()
