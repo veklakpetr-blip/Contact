@@ -5,8 +5,13 @@ app = Ursina()
 
 player = FirstPersonController(
     position=(0, 0, 0),
-    speed=2,
+    speed=5,
     model='box'
+)
+
+supra = Entity(
+    model='assets\car.obj',
+    position=(0, 3, 0)
 )
 
 # Создаем пол
@@ -24,4 +29,4 @@ def input(key):
     if key == "escape":
         quit()
 
-app.run()
+app.run() 
