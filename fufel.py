@@ -12,14 +12,17 @@ player = FirstPersonController(
 
 supra = Entity(
     model='assets/car.obj',
-    position=(0, 0.5, 0),
+    position=(100, 0.3, 0),
+    rotation=(0, 180, 0),
+    color=color.black,
+    collider='mesh',
     shader=lit_with_shadows_shader
 )
 
 # Создаем пол
 ground = Entity(
     model='assets/enviropment.obj',
-    collider='box',
+    collider='mesh',
     shader=lit_with_shadows_shader
 )
 
