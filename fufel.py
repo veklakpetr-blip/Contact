@@ -5,20 +5,18 @@ app = Ursina()
 
 player = FirstPersonController(
     position=(0, 0, 0),
-    speed=5,
+    speed=7,
     model='box'
 )
 
 supra = Entity(
     model='assets\car.obj',
-    position=(0, 3, 0)
+    position=(0, 1, 0)
 )
 
 # Создаем пол
 ground = Entity(
-    model='plane',
-    scale=(1000, 1, 1000),
-    color=color.green,
+    model='assets\enviropment.obj',
     texture='white_cube',
     collider='box'
 )
@@ -29,4 +27,6 @@ def input(key):
     if key == "escape":
         quit()
 
-app.run() 
+1
+
+app.run()
