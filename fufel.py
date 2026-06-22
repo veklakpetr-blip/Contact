@@ -2,19 +2,22 @@ from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from ursina.shaders import lit_with_shadows_shader
 
-suprax = 100
+from constants import PLAYER_SPEED, PLAYER_FOV, SUPRA_BORDER, SUPRA_SPEED_SCALE
+
+supra_x = 100
+supra_speed = 0.2
 
 app = Ursina()
 
 player = FirstPersonController(
     position=(0, 0, -10),
-    speed=7,
+    speed=PLAYER_SPEED,
     model='box'
 )
 
 supra = Entity(
     model='assets/car.obj',
-    position=(suprax, 0.3, 0),
+    position=(supra_x, 0.3, 0),
     rotation=(0, 180, 0),
     color=color.black,
     collider='mesh',
@@ -32,16 +35,18 @@ Sky()
 
 sun = DirectionalLight()
 sun.look_at(Vec3(1, -1, -1))
+camera.fov = PLAYER_FOV
 
 def input(key):
     if key == "escape":
         quit()
 
 def zadacha1():
-    global suprax
+    global supra_x, supra_speed
+    supra.position -= Vec3(supra_speed, 0, 0)
 
-    if supra.position[0] != 0:
-        supra.position -= Vec3(0.5, 0, 0)
+    if supra.position[0] < SUPRA_BORDER:
+        supra_speed *= SUPRA_SPEED_SCALE
 
 def update():
     zadacha1()
