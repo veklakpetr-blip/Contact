@@ -16,7 +16,7 @@ player = FirstPersonController(
 )
 
 supra = Entity(
-    model='assets/car.obj',
+    model='assets/models/car.obj',
     position=(supra_x, 0.3, 0),
     rotation=(0, 180, 0),
     color=color.black,
@@ -26,8 +26,16 @@ supra = Entity(
 
 # Создаем пол
 ground = Entity(
-    model='assets/enviropment.obj',
+    model='assets/models/enviropment.obj',
     collider='mesh',
+    shader=lit_with_shadows_shader
+)
+
+tree = Entity(
+    model='assets/models/tree.obj',
+    position=(20, 0, -7),
+    texture='assets/images/tree.png',
+    double_sided=True,
     shader=lit_with_shadows_shader
 )
 
