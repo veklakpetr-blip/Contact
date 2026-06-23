@@ -7,12 +7,11 @@ from constants import PLAYER_SPEED, PLAYER_FOV, SUPRA_BORDER, SUPRA_SPEED_SCALE
 supra_x = 100
 supra_speed = 0.2
 
-app = Ursina()
+app = Ursina(fullscreen=True, borderless=True)
 
 player = FirstPersonController(
     position=(0, 0, -10),
-    speed=PLAYER_SPEED,
-    model='box'
+    speed=PLAYER_SPEED
 )
 
 supra = Entity(
