@@ -4,27 +4,38 @@ from ursina.shaders import lit_with_shadows_shader
 
 from modules.constants import PLAYER_SPEED, PLAYER_FOV, SUPRA_BORDER, SUPRA_STOP_SCALE
 
-supra_x = 100
-supra_speed = 0.2
+supra_x = -34
+supra_y = 0
+supra_speed = 0.5
 
-app = Ursina(fullscreen=True, borderless=True)
+app = Ursina()
 
 player = FirstPersonController(
-    position=(0, 0, -10),
+    position=(-25, 0, -10),
+    rotation=(0, 270, 0),
     speed=PLAYER_SPEED
 )
 
 supra = Entity(
     model='assets/models/car.obj',
-    position=(supra_x, 0.3, 0),
-    rotation=(0, 180, 0),
+    position=(supra_x, 0.3, supra_y),
+    rotation=(0, 90, 0),
     color=color.black,
     collider='mesh',
     shader=lit_with_shadows_shader
 )
 
 ground = Entity(
+    scale=10,
     model='assets/models/enviropment.obj',
+    collider='mesh',
+    shader=lit_with_shadows_shader
+)
+
+road = Entity(
+    color=color.black,
+    scale=10,
+    model='assets/models/road.obj',
     collider='mesh',
     shader=lit_with_shadows_shader
 )
@@ -38,15 +49,18 @@ camera.fov = PLAYER_FOV
 def input(key):
     if key == 'escape':
         quit()
+    if held_keys['right mouse']:
+        print('ddd')
 
-def zadacha1():
-    global supra_x, supra_speed
-    supra.position -= Vec3(supra_speed, 0, 0)
+def zadacha1_1():
+    player.enabled = True
+    global supra_x, supra_y, supra_speed
+    supra.position -= Vec3(0, 0, supra_speed)
 
-    if supra.position[0] < SUPRA_BORDER:
+    if supra.position[2] < SUPRA_BORDER:
         supra_speed *= SUPRA_STOP_SCALE
 
 def update():
-    zadacha1()
+    zadacha1_1()
 
 app.run()
