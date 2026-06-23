@@ -2,7 +2,7 @@ from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from ursina.shaders import lit_with_shadows_shader
 
-from constants import PLAYER_SPEED, PLAYER_FOV, SUPRA_BORDER, SUPRA_SPEED_SCALE
+from modules.constants import PLAYER_SPEED, PLAYER_FOV, SUPRA_BORDER, SUPRA_STOP_SCALE
 
 supra_x = 100
 supra_speed = 0.2
@@ -23,18 +23,9 @@ supra = Entity(
     shader=lit_with_shadows_shader
 )
 
-# Создаем пол
 ground = Entity(
     model='assets/models/enviropment.obj',
     collider='mesh',
-    shader=lit_with_shadows_shader
-)
-
-tree = Entity(
-    model='assets/models/tree.obj',
-    position=(20, 0, -7),
-    texture='assets/images/tree.png',
-    double_sided=True,
     shader=lit_with_shadows_shader
 )
 
@@ -45,7 +36,7 @@ sun.look_at(Vec3(1, -1, -1))
 camera.fov = PLAYER_FOV
 
 def input(key):
-    if key == "escape":
+    if key == 'escape':
         quit()
 
 def zadacha1():
@@ -53,7 +44,7 @@ def zadacha1():
     supra.position -= Vec3(supra_speed, 0, 0)
 
     if supra.position[0] < SUPRA_BORDER:
-        supra_speed *= SUPRA_SPEED_SCALE
+        supra_speed *= SUPRA_STOP_SCALE
 
 def update():
     zadacha1()
