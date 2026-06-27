@@ -7,26 +7,25 @@ from modules.constants import PLAYER_SPEED, PLAYER_HEIGHT, CAMERA_FOV
 app = Ursina()
 
 player = Controller(
-    position=(-25, 0, -10),
-    rotation=(0, 270, 0),
+    position=(0, 0, 0),
     height=PLAYER_HEIGHT,
     speed=PLAYER_SPEED
 )
 
+texture = load_texture('assets/images/plane.jpg', filtering='linear')
 plane = Entity(
-    model='plane.obj',
-    texture='plane.png',
-    collider='mesh',
-    shader=lit_with_shadows_shader
+    model='assets/models/plane.obj',
+    texture=texture,
+    collider='mesh'
 )
 
+texture = load_texture('assets/images/road.jpg', filtering='linear')
 road = Entity(
-    model='road.obj',
-    texture='road.png',
+    model='assets/models/road.obj',
+    texture=texture,
     collider='mesh',
     shader=lit_with_shadows_shader
 )
-
 
 Sky()
 
