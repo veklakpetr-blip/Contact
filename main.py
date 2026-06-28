@@ -13,20 +13,29 @@ player = Controller(
     speed=PLAYER_SPEED
 )
 
+texture = load_texture('assets/images/plane.png', filtering='linear')
 plane = Entity(
-    model='plane.obj',
-    texture='plane.png',
+    model='assets/models/plane.obj',
+    texture=texture,
     collider='mesh',
     shader=lit_with_shadows_shader
 )
 
+texture = load_texture('assets/images/road.png', filtering='linear')
 road = Entity(
-    model='road.obj',
-    texture='road.png',
+    model='assets/models/road.obj',
+    texture=texture,
     collider='mesh',
     shader=lit_with_shadows_shader
 )
 
+texture = load_texture('assets/images/house.png', filtering='linear')
+house = Entity(
+    model='assets/models/house.obj',
+    texture=texture,
+    collider='mesh',
+    shader=lit_with_shadows_shader
+)
 
 Sky()
 
