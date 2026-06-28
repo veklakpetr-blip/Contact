@@ -37,6 +37,31 @@ house = Entity(
     shader=lit_with_shadows_shader
 )
 
+texture = load_texture('assets/images/house2.png', filtering='linear')
+house2 = Entity(
+    model='assets/models/house2.obj',
+    texture=texture,
+    collider='mesh',
+    shader=lit_with_shadows_shader
+)
+
+texture = load_texture('assets/images/house3.png', filtering='linear')
+house3 = Entity(
+    model='assets/models/house3.obj',
+    texture=texture,
+    collider='mesh',
+    shader=lit_with_shadows_shader
+)
+
+texture = load_texture('assets/images/tree.png', filtering='linear')
+tree = Entity(
+    model='assets/models/tree.obj',
+    texture=texture,
+    double_sided=True,
+    collider='mesh',
+    shader=lit_with_shadows_shader
+)
+
 Sky()
 
 sun = DirectionalLight()
