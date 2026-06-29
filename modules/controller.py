@@ -2,7 +2,7 @@ from ursina import *
 
 class Controller(Entity):
     def __init__(self, height=2, **kwargs):
-        self.cursor = Entity(parent=camera.ui, model='quad', texture='assets/images/pivot.png', scale=0.005)
+        self.cursor = Entity(parent=camera.ui, model='sphere', color=color.white, scale=0.005)
         super().__init__()
         self.speed = 5
         self.height = height
