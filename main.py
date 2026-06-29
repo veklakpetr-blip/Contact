@@ -1,6 +1,7 @@
 from ursina import *
 from ursina.shaders import lit_with_shadows_shader
 
+from modules.level import *
 from modules.controller import Controller
 from modules.constants import PLAYER_SPEED, PLAYER_NORMAL_HEIGHT, PLAYER_DRIVE_HEIGHT, CAMERA_FOV, SUPRA_BORDER, SUPRA_STOP_SCALE
 
@@ -24,21 +25,6 @@ supra = Entity(
     position=(supra_x, 0.3, supra_y),
     rotation=(0, 90, 0),
     color=color.black,
-    collider='mesh',
-    shader=lit_with_shadows_shader
-)
-
-ground = Entity(
-    scale=10,
-    model='assets/models/enviropment.obj',
-    collider='mesh',
-    shader=lit_with_shadows_shader
-)
-
-road = Entity(
-    color=color.black,
-    scale=10,
-    model='assets/models/road.obj',
     collider='mesh',
     shader=lit_with_shadows_shader
 )
